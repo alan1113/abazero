@@ -231,14 +231,19 @@ class Game(object):
             move, move_probs = player.get_action(
                 self.board, temp=temp, return_prob=1
             )
-            print()
+
 
             # 保存自我对弈的数据
             states.append(self.board.current_state())
             mcts_probs.append(move_probs)
             current_players.append(self.board.get_current_player_color())
+
             # 执行一步落子
             self.board.do_move(move)
+            print(_count)
+            print(self.board.state_deque[-1])
+            print(int(move / 54), int(move / 6) % 9, move % 6)
+            print('-----')
             winner = self.board.has_a_winner()
             if winner:
                 # 从每一个状态state对应的玩家的视角保存胜负信息

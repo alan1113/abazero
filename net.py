@@ -101,7 +101,7 @@ class Network(nn.Module):
         # print(pol)
         pol = F.log_softmax(pol, dim=1)
         # print(pol)
-        print('----------')
+        # print('----------')
 
         # value head
         val = self.value_conv(x)
@@ -153,11 +153,11 @@ class PolicyValueNet:
 
         log_act_probs, value = log_act_probs.cpu(), value.cpu()
         act_probs = np.exp(log_act_probs.detach().numpy().flatten())
-        print(act_probs)
-        print('++++++++')
+        # print(act_probs)
+        # print('++++++++')
 
         act_probs = act_probs * legal_positions
-        print(act_probs)
+        # print(act_probs)
         # except:
         #     print (log_act_probs)
         #        act_probs = np.multiply(legal_positions, act_probs)
