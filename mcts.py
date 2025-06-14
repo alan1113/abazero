@@ -69,10 +69,10 @@ class MCTS:
                 break
             else:
                 action, node = node.select(self._c_puct)  # continue search
-                print(type(action))
-                print(action)
+                # print(type(action))
+                # print(action)
                 state.do_move(action)  # move for policy
-        print(state.state_deque[-1])
+        # print(state.state_deque[-1])
 
         action_probs, left_value = self._policy(state)
         # print(action_probs)
